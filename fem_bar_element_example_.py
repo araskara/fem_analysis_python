@@ -74,16 +74,15 @@ for i in range(2):
         K_global[i+1][j+1] += kmatrix3[i][j]
 
 #F=Ku
-
 #Boundary condition
-# u1=0, u4=0
+#u1=0, u4=0
+#Eliminate the first and fourth columns
 
 K_boundary_rows = [row for i, row in enumerate(K_global) if i not in {0, 3}]
 
-# eliminate the first and fourth columns
 K_boundary = [[col for j, col in enumerate(row) if j not in {0, 3}] for row in K_boundary_rows]
 
 F=[13,345,0]
 
-u= gaussian_elimination(K_boundary,F)
+U= gaussian_elimination(K_boundary,F)
 
